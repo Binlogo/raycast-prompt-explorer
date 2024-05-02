@@ -50,7 +50,7 @@ const code: Prompt[] = [
     title: "将CSS代码转换为Tailwind CSS类",
     prompt:
       "将以下代码转换为Tailwind CSS类，并在代码块中给出结果。确保删除任何浏览器前缀。只给出我可以放入HTML元素'class'属性中的内容。" +
-      generateSelection("Code", "Tailwind CSS classes"),
+      generateSelection("代码", "Tailwind CSS 类"),
     creativity: "low",
     model: "openai-gpt-3.5-turbo",
     date: "2024-05-01",
@@ -61,7 +61,7 @@ const code: Prompt[] = [
     title: "添加调试语句",
     prompt:
       "扮演软件工程师调试其代码。向代码中添加调试语句。根据需要添加尽可能多的语句，以便更轻松地进行调试。" +
-      generateSelection("Code", "Debugged code"),
+      generateSelection("代码", "调试的代码"),
     creativity: "medium",
     model: "openai-gpt-3.5-turbo",
     date: "2024-05-01",
@@ -72,7 +72,7 @@ const code: Prompt[] = [
     title: "编写函数文档",
     prompt:
       "为函数添加说明文档。保证文档尽量详尽。" +
-      generateSelection("Function", "Docstring"),
+      generateSelection("函数", "文档"),
     creativity: "low",
     model: "openai-gpt-3.5-turbo",
     date: "2024-05-01",
@@ -104,7 +104,7 @@ const communication: Prompt[] = [
     title: "友好提问",
     prompt:
       "用简洁友好的语气改写以下文本提问，这个问题应该可以在类似Slack这样的聊天应用中发送。" +
-      generateSelection("Text", "Question"),
+      generateSelection("文本", "问题"),
     creativity: "low",
     date: "2024-05-01",
     icon: "question-mark-circle",
@@ -114,7 +114,7 @@ const communication: Prompt[] = [
     title: "友好提问 - 使用英语",
     prompt:
       "用简洁友好的语气并使使用英语改写以下文本提问，这个问题应该可以在类似Slack、Discord这样的聊天应用中发送。" +
-      generateSelection("Text", "Question"),
+      generateSelection("文本", "问题"),
     creativity: "low",
     date: "2024-05-01",
     icon: "question-mark-circle",
