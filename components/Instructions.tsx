@@ -12,15 +12,13 @@ export function Instructions() {
         <Cursor />
       </div>
 
-      <h3 className={styles.title}>Install AI Commands</h3>
+      <h3 className={styles.title}>安装AI命令</h3>
       <p className={styles.description}>
-        Select a prompt by clicking on it. Hold{" "}
-        <kbd data-variant="small">⌘</kbd> to select multiple. Click{" "}
-        <strong>Add to Raycast</strong> to import them directly.
+        通过点击选择一个提示。按住 <kbd data-variant="small">⌘</kbd> 键选择多个。点击 <strong>添加到Raycast</strong> 直接导入它们。
       </p>
 
       <Button variant="red" disabled>
-        Add to Raycast
+        添加到Raycast
       </Button>
     </div>
   );

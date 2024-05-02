@@ -192,7 +192,7 @@ export default function Home() {
       <header className={styles.nav}>
         <Link
           href="/"
-          aria-label="Home"
+          aria-label="主页"
           style={{ display: "flex", alignItems: "center", gap: 12 }}
         >
           <span
@@ -200,7 +200,7 @@ export default function Home() {
             style={{ fontWeight: 500, fontSize: 13 }}
             data-variant="gray"
           >
-            ← See all Prompts
+            ← 查看所有提示
           </span>
         </Link>
         <div className={styles.navControls}>
@@ -210,7 +210,7 @@ export default function Home() {
               disabled={selectedPrompts.length === 0}
               onClick={() => handleAddToRaycast()}
             >
-              <PlusCircleIcon /> Add to Raycast
+              <PlusCircleIcon /> 添加到 Raycast
             </Button>
 
             <DropdownMenu open={actionsOpen} onOpenChange={setActionsOpen}>
@@ -218,7 +218,7 @@ export default function Home() {
                 <Button
                   variant="red"
                   disabled={selectedPrompts.length === 0}
-                  aria-label="Export options"
+                  aria-label="导出选项"
                 >
                   <ChevronDownIcon />
                 </Button>
@@ -228,7 +228,7 @@ export default function Home() {
                   disabled={selectedPrompts.length === 0}
                   onSelect={() => handleDownload()}
                 >
-                  <DownloadIcon /> Download JSON
+                  <DownloadIcon /> 下载 JSON
                   <span className={styles.hotkeys}>
                     <kbd>⌘</kbd>
                     <kbd>D</kbd>
@@ -238,7 +238,7 @@ export default function Home() {
                   disabled={selectedPrompts.length === 0}
                   onSelect={() => handleCopyData()}
                 >
-                  <CopyClipboardIcon /> Copy JSON{" "}
+                  <CopyClipboardIcon /> 复制 JSON{" "}
                   <span className={styles.hotkeys}>
                     <kbd>⌘</kbd>
                     <kbd>⌥</kbd>
@@ -254,7 +254,7 @@ export default function Home() {
 
       <Toast open={copied} onOpenChange={setCopied}>
         <ToastTitle className={styles.toastTitle}>
-          <CopyClipboardIcon /> Copied to clipboard
+          <CopyClipboardIcon /> 已复制到剪贴板
         </ToastTitle>
       </Toast>
 
@@ -358,14 +358,14 @@ export default function Home() {
                                     <PlusCircleIcon />
                                   )}
                                   {isSelected
-                                    ? "Deselect Prompt"
-                                    : "Select Prompt"}
+                                    ? "取消选择提示"
+                                    : "选择提示"}
                                 </ContextMenu.Item>
                                 <ContextMenu.Item
                                   className={styles.contextMenuItem}
                                   onSelect={() => handleCopyText(prompt)}
                                 >
-                                  <CopyClipboardIcon /> Copy Prompt Text{" "}
+                                  <CopyClipboardIcon /> 复制提示文本{" "}
                                 </ContextMenu.Item>
                               </ContextMenu.Content>
                             </ContextMenu.Portal>
