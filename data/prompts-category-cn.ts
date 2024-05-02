@@ -8,6 +8,31 @@ function generateSelection(selectionWord: string, resultWord: string) {
 
 const browser: Prompt[] = [
   {
+    id: "summarize-website-cn",
+    title: "总结网站",
+    prompt: `使用以下格式总结提供的网站：
+"""
+## <简洁易读的网站标题>
+
+<一到两句话的摘要，包含最重要的信息>
+
+### 主要观点
+
+- <三个关键观点的要点，要尽量保持简短>
+"""
+
+请严格遵循以下规则：
+- 必须捕捉到作者的语气、观点和立场
+- 不要添加额外的信息
+
+以下是网站信息：
+{browser-tab}`,
+    creativity: "low",
+    date: "2024-03-21",
+    icon: "raycast-logo-neg",
+    model: "anthropic-claude-haiku",
+  },
+  {
     id: "inspect-website-cn",
     title: "查看网站技术栈",
     prompt: `根据以下HTML文档描述使用的技术栈:
@@ -27,13 +52,13 @@ const browser: Prompt[] = [
 
 """
 ## 总结
-{Multiple sentences summarising the YouTube video}
+{多个句子总结YouTube视频}
 
 ## 摘要
-{Bullet points that summarize the key points or important moments from the video’s transcript with explanations}
+{用解释说明的方式总结视频转录稿中的关键观点或重要时刻的要点}
 
 ## 引用
-{Extract the best sentences from the transcript in a list}
+{从转录稿中提取最佳句子的列表}
 """
 
 转录稿件: {browser-tab}`,
