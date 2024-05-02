@@ -24,7 +24,10 @@ import { ButtonGroup } from "../components/ButtonGroup";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { isTouchDevice } from "../utils/isTouchDevice";
 
-import { categories, Category, Model, Prompt } from "../data/prompts";
+import { Category, Model, Prompt } from "../data/prompts";
+
+// Notes: temp import the categories in Chinese for now
+import { categories } from "../data/prompts-category-cn";
 
 import styles from "../styles/Home.module.css";
 import { Instructions } from "../components/Instructions";
@@ -462,7 +465,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
             <ScrollArea>
               <div className={styles.sidebarContent}>
                 <div className={styles.sidebarNav}>
-                  <p className={styles.sidebarTitle}>Categories</p>
+                  <p className={styles.sidebarTitle}>分类</p>
 
                   {categories.map((category) => (
                     <NavItem key={category.slug} category={category} />
