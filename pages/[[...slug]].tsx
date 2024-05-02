@@ -260,7 +260,6 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
       }, 2000);
     }
   }, [showToast]);
-
   return (
     <div>
       <header className={styles.nav}>
@@ -275,48 +274,48 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
           <DialogContent className={styles.about} showCloseButton={true}>
             <div className={styles.aboutTopContent}>
               <div>
-                <DialogTitle className={styles.dialogTitle}>About</DialogTitle>
+                <DialogTitle className={styles.dialogTitle}>关于</DialogTitle>
                 <DialogDescription className={styles.dialogDescription}>
-                  Prompt Explorer is a tool to easily browse, share, and add
-                  prompts to <a href="https://raycast.com">Raycast</a>.
+                  Prompt Explorer 是一个方便浏览、分享和添加提示到{" "}
+                  <a href="https://raycast.com">Raycast</a> 的工具。
                 </DialogDescription>
                 <p className={styles.dialogDescription}>
-                  Select the prompts by clicking on them. To select multiple,
-                  hold <kbd>⌘</kbd> or select them with your mouse.
+                  通过点击提示来选择它们。要选择多个提示，按住 <kbd>⌘</kbd>{" "}
+                  键或使用鼠标选择。
                 </p>
                 <p className={styles.dialogDescription}>
-                  Then, click the “Add to Raycast” button to import these
-                  prompts as AI Commands. You can also download the prompts as a
-                  JSON file, or copy the URL to share with others.
+                  然后，点击“添加到 Raycast”按钮将这些提示作为 AI
+                  命令导入。您还可以将提示下载为 JSON 文件，或复制 URL
+                  与他人分享。
                 </p>
               </div>
               {!isTouch && (
                 <div>
-                  <h4 className={styles.dialogTitle}>Shortcuts</h4>
+                  <h4 className={styles.dialogTitle}>快捷键</h4>
                   <ul className={styles.shortcuts}>
                     <li>
-                      Add to Raycast
+                      添加到 Raycast
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>⏎</kbd>
                       </span>
                     </li>
                     <li>
-                      Toggle Export Menu
+                      切换导出菜单
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>K</kbd>
                       </span>
                     </li>
                     <li>
-                      Download JSON
+                      下载 JSON
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>D</kbd>
                       </span>
                     </li>
                     <li>
-                      Copy JSON
+                      复制 JSON
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>⌥</kbd>
@@ -324,7 +323,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                       </span>
                     </li>
                     <li>
-                      Copy URL to Share
+                      复制分享链接
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>⇧</kbd>
@@ -332,7 +331,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                       </span>
                     </li>
                     <li>
-                      Toggle this view
+                      切换视图
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>/</kbd>
@@ -343,22 +342,22 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
               )}
             </div>
 
-            <h4 className={styles.dialogTitle}>Contribute</h4>
+            <h4 className={styles.dialogTitle}>贡献</h4>
             <p className={styles.dialogDescription}>
-              This project is Open Source and{" "}
+              该项目是开源的，{" "}
               <a
                 href="https://github.com/raycast/prompt-explorer"
-                title="Prompt Explorer on GitHub"
+                title="在 GitHub 上的 Prompt Explorer"
               >
-                available on GitHub
+                在 GitHub 上可用
               </a>
-              . We welcome contributions!
+              。我们欢迎贡献！
               <br />
-              If you have any questions or feedback, please{" "}
+              如果您有任何问题或反馈，请{" "}
               <a href="mailto:feedback+rayso@raycast.com?subject=prompts">
-                send us an email
+                发送电子邮件给我们
               </a>
-              .
+              。
             </p>
 
             <p style={{ fontSize: 13, marginTop: 32 }}>
@@ -371,11 +370,12 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                   gap: 6,
                 }}
               >
-                Made by{" "}
+                由{" "}
                 <span style={{ color: "#FF6363" }}>
                   <RaycastLogoNegIcon />{" "}
                 </span>
                 <span>Raycast</span>
+                制作 · 中文版由<a href="https://github.com/Binlogo"><span style={{ color: "#FF6363" }}>Binlogo</span></a>贡献
               </a>
             </p>
             <div className={styles.aboutGlow} />
@@ -390,7 +390,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                 disabled={selectedPrompts.length === 0}
                 onClick={() => handleAddToRaycast()}
               >
-                <PlusCircleIcon /> Add to Raycast
+                <PlusCircleIcon /> 添加到 Raycast
               </Button>
 
               <DropdownMenu open={actionsOpen} onOpenChange={setActionsOpen}>
@@ -398,7 +398,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                   <Button
                     variant="red"
                     disabled={selectedPrompts.length === 0}
-                    aria-label="Export options"
+                    aria-label="导出选项"
                   >
                     <ChevronDownIcon />
                   </Button>
@@ -408,7 +408,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                     disabled={selectedPrompts.length === 0}
                     onSelect={() => handleDownload()}
                   >
-                    <DownloadIcon /> Download JSON
+                    <DownloadIcon /> 下载 JSON
                     <span className={styles.hotkeys}>
                       <kbd>⌘</kbd>
                       <kbd>D</kbd>
@@ -418,7 +418,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                     disabled={selectedPrompts.length === 0}
                     onSelect={() => handleCopyData()}
                   >
-                    <CopyClipboardIcon /> Copy JSON{" "}
+                    <CopyClipboardIcon /> 复制 JSON{" "}
                     <span className={styles.hotkeys}>
                       <kbd>⌘</kbd>
                       <kbd>⌥</kbd>
@@ -429,7 +429,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                     disabled={selectedPrompts.length === 0}
                     onSelect={() => handleCopyUrl()}
                   >
-                    <LinkIcon /> Copy URL to Share{" "}
+                    <LinkIcon /> 复制分享链接{" "}
                     <span className={styles.hotkeys}>
                       <kbd>⌘</kbd>
                       <kbd>⇧</kbd>
@@ -447,7 +447,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
               disabled={selectedPrompts.length === 0}
               onClick={() => handleCopyUrl()}
             >
-              <LinkIcon /> Copy URL to Share
+              <LinkIcon /> 复制分享链接
             </Button>
           )}
         </div>
@@ -476,14 +476,14 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
 
                 {selectedPrompts.length > 0 && (
                   <div>
-                    <p className={styles.sidebarTitle}>Add to Raycast</p>
+                    <p className={styles.sidebarTitle}>添加到 Raycast</p>
 
                     <Collapsible.Root>
                       <Collapsible.Trigger asChild>
                         <button className={styles.summaryTrigger}>
                           {selectedPrompts.length}{" "}
-                          {selectedPrompts.length > 1 ? "Prompts" : "Prompt"}{" "}
-                          selected
+                          {selectedPrompts.length > 1 ? "个提示" : "个提示"}{" "}
+                          已选择
                           <ChevronDownIcon />
                         </button>
                       </Collapsible.Trigger>
@@ -515,11 +515,11 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
 
                     <div className={styles.summaryControls}>
                       <Button onClick={handleAddToRaycast} variant="red">
-                        Add to Raycast
+                        添加到 Raycast
                       </Button>
 
                       <Button onClick={() => setSelectedPrompts([])}>
-                        Clear selected
+                        清除选择
                       </Button>
                     </div>
                   </div>
@@ -591,7 +591,7 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                                     {prompt.title}
                                     {prompt.author ? (
                                       <span className={styles.promptAuthor}>
-                                        by{" "}
+                                        作者{" "}
                                         {prompt.author.link ? (
                                           <a
                                             href={prompt.author.link}
@@ -646,15 +646,13 @@ export default function Home({ onTouchReady }: { onTouchReady: () => void }) {
                                   ) : (
                                     <PlusCircleIcon />
                                   )}
-                                  {isSelected
-                                    ? "Deselect Prompt"
-                                    : "Select Prompt"}
+                                  {isSelected ? "取消选择提示" : "选择提示"}
                                 </ContextMenu.Item>
                                 <ContextMenu.Item
                                   className={styles.contextMenuItem}
                                   onSelect={() => handleCopyText(prompt)}
                                 >
-                                  <CopyClipboardIcon /> Copy Prompt Text{" "}
+                                  <CopyClipboardIcon /> 复制提示文本{" "}
                                 </ContextMenu.Item>
                               </ContextMenu.Content>
                             </ContextMenu.Portal>
