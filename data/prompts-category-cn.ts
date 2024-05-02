@@ -190,7 +190,7 @@ const writing: Prompt[] = [
     id: "write-story-cn",
     title: "写故事",
     prompt:
-    "根据文本编写一个故事。使故事引人入胜。故事的字数不应超过 {argument name=number default=500} 个字。" + 
+      "根据文本编写一个故事。使故事引人入胜。故事的字数不应超过 {argument name=number default=500} 个字。" +
       generateSelection("文本", "故事"),
     creativity: "high",
     date: "2024-05-01",
@@ -238,6 +238,212 @@ const music: Prompt[] = [
     creativity: "high",
     date: "2024-05-01",
     icon: "music",
+  },
+  {
+    id: "improve-writing-cn",
+    title: "提升写作",
+    prompt:
+      `扮演一个拼写纠正者、内容撰写者和文本改进者/编辑者的角色。仅通过重写的文本回复每条消息。
+严格遵循以下规则：
+- 纠正给定文本中的拼写、语法和标点错误
+- 在不改变原始含义的情况下提高清晰度和简洁性
+- 将冗长的句子分成更短、更易读的句子
+- 消除不必要的重复，同时保留重要观点
+- 优先使用积极语态，以获得更具吸引力的语气
+- 在可能的情况下选择更简单、更易理解的词汇
+- 始终确保给定文本的原始含义和意图
+- \(maintainOriginalLanguage)
+- 始终保持现有的语气和风格，例如正式、随意、礼貌等
+- 永远不要在改进的文本中添加引号或任何其他格式
+- 如果文本已经写得很好，不需要改进，请不要更改给定的文本` +
+      generateSelection("文本", "改进后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "anthropic-claude-haiku",
+  },
+  {
+    id: "fix-spelling-and-grammar-cn",
+    title: "修正拼写和语法 ",
+    prompt:
+      `扮演一个拼写纠正者和改进者的角色。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 纠正拼写、语法和标点符号
+- \(maintainOriginalLanguage)
+- 永远不要在重写的文本周围添加引号
+- \(maintainURLs)
+- 不要更改表情符号` + generateSelection("文本", "修正后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "explain-this-in-simple-terms-cn",
+    title: "用简单的语言解释 ",
+    prompt:
+      `扮演一个词典和百科全书，为给定的单词或概念提供清晰简洁的解释。
+
+严格遵循以下规则：
+- 用简洁明了的语言解释文本
+  - 对于一个单词，提供一个简短易懂的定义
+  - 对于一个概念或短语，给出一个简明扼要的解释，将主要思想分解为简单的术语
+- 在必要时使用例子或类比来阐明复杂的主题
+- 只回复解释或定义
+
+一些例子：
+文本：哲学
+解释：哲学是研究知识、现实和存在的基本本质。它是一个试图解释世界和我们在其中的位置的思想体系。哲学家使用逻辑和理性来探索生活和宇宙的意义。` +
+      generateSelection("文本", "解释"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "make-longer-cn",
+    title: "扩展文本 ",
+    prompt:
+      `扮演一位专业的内容撰写者，任务是扩展客户的文本，同时保持其核心和风格。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 始终保留文本的原始语气、声音和语言
+- 确定并扩展最重要的信息和关键点
+- 避免重复
+- 保持接近提供的文本的事实性
+- 保持URL的原始格式，不要用markdown链接替换它们
+- 只回复扩展的文本` + generateSelection("文本", "扩展后的文本"),
+    creativity: "high",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "make-shorter-cn",
+    title: "缩短文本 ",
+    prompt:
+      `扮演一位专业的内容撰写者，任务是缩短客户的文本，同时保持其核心和风格。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 始终保留文本的原始语气、声音和语言
+- 确定并保留最重要的信息和关键点
+- 消除冗余和重复的短语或句子
+- 保持URL的原始格式，不要用markdown链接替换它们
+- 确保缩短的文本流畅并保持连贯性
+- 力求在不损害核心含义和风格的情况下尽可能减少字数
+- 只回复缩短的文本` + generateSelection("文本", "缩短后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "anthropic-claude-haiku",
+  },
+  {
+    id: "change-tone-to-professional-cn",
+    title: "将语气改为专业 ",
+    prompt:
+      `扮演一位专业的内容撰写者和编辑。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 专业的语气
+- 正式的语言
+- 准确的事实
+- 正确的拼写、语法和标点符号
+- 简洁的措辞
+- 含义不变
+- 保持长度不变
+- \(maintainURLs)
+\(maintainOriginalLanguage)` + generateSelection("文本", "重写后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "change-tone-to-friendly-cn",
+    title: "将语气改为友好 ",
+    prompt:
+      `扮演一个内容撰写者和编辑的角色。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 友好和乐观的语气
+- 正确的拼写、语法和标点符号
+- 含义不变
+- 保持长度不变
+- \(maintainURLs)
+- \(maintainOriginalLanguage)` + generateSelection("文本", "重写后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "change-tone-to-confident-cn",
+    title: "将语气改为自信 ",
+    prompt:
+      `扮演一个内容撰写者和编辑的角色。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 使用自信、正式和友好的语气
+- 避免含糊不清，尽可能明确
+- 跳过道歉
+- 重点放在主要论点上
+- 正确的拼写、语法和标点符号
+- 保持含义不变
+- 保持长度不变
+- \(maintainURLs)
+- \(maintainOriginalLanguage)` + generateSelection("文本", "重写后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "change-tone-to-casual-cn",
+    title: "将语气改为随意 ",
+    prompt:
+      `扮演一个内容撰写者和编辑的角色。\(replyWithRewrittenText)
+
+严格遵循以下规则：
+- 使用随意和友好的语气
+- 使用主动语态
+- 保持句子简短
+- 可以使用俚语和缩写词
+- 保持语法人称
+- 正确的拼写、语法和标点符号
+- 保持含义不变
+- 保持长度不变
+- \(maintainURLs)
+- \(maintainOriginalLanguage)` + generateSelection("文本", "重写后的文本"),
+    creativity: "low",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
+  },
+  {
+    id: "rephrase-as-tweet-cn",
+    title: "将文本改写为推文 ",
+    prompt:
+      `你是该领域的专家，并有机会与大量观众分享你的想法和见解！将文本改写为以下特点的推文：
+- 随意而乐观的语气
+- 创造性和引人注目
+- 专注于挑战现状的关键要点
+- 吸引人和有力的
+- \(maintainURLs)
+- 重要：不超过25个字。
+- 重要：不包括井号、标签和以#开头的词，例如 #innovation #Technology
+- \(maintainOriginalLanguage)
+
+文本：
+The concept of Rayday is simple. Every Friday, everyone can use the day to work on something that benefits Raycast. From new features, to fixing bugs, drafting documentation or tidying up, it’s time for us to take a break from project work. As well as getting creative with our own ideas, it’s a great chance to act on feedback from our users and community too.
+
+推文：
+⚒️ We hack every Friday – we call it 'Rayday'. Everyone can use the day to work on something that benefits Raycast – aside from normal project work.` +
+      generateSelection("文本", "推文"),
+    creativity: "high",
+    date: "2024-04-23",
+    icon: "raycast-logo-neg",
+    model: "openai-gpt-3.5-turbo",
   },
 ];
 
@@ -333,8 +539,7 @@ const misc: Prompt[] = [
     id: "create-recipe-cn",
     title: "给我一个食谱",
     prompt:
-      "根据食材给我一个易于操作的食谱。" +
-      generateSelection("食材", "食谱"),
+      "根据食材给我一个易于操作的食谱。" + generateSelection("食材", "食谱"),
     creativity: "medium",
     date: "2024-05-01",
     icon: "bullet-points",
@@ -532,7 +737,7 @@ const baseCategories: Category[] = [
     slug: "/misc",
     prompts: [...misc],
     icon: "folder" as const,
-  }
+  },
 ].map((category) => {
   return {
     ...category,
