@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="icon" type="image/x-icon" href={`/favicon.png`} />
-        <title>Prompt Explorer by Raycast</title>
+        <title>Prompt Explorer by Raycast - 中文版</title>
 
         <meta
           property="og:image"
@@ -29,12 +29,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta
           property="og:title"
-          content="Prompt Explorer by Raycast"
+          content="Prompt Explorer by Raycast - 中文版"
           key="og-title"
         />
         <meta
           property="og:description"
-          content="Easily browse, share, and add prompts to Raycast."
+          content="轻松浏览、分享和添加提示到 Raycast。."
           key="og-description"
         />
 
@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="twitter:site" content="@raycastapp" />
         <meta
           name="description"
-          content="Easily browse, share, and add prompts to Raycast."
+          content="轻松浏览、分享和添加提示到 Raycast。."
         />
       </Head>
       <ToastProvider swipeDirection="down">
