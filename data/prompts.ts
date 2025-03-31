@@ -35,8 +35,8 @@ function generateSelection(selectionWord: string, resultWord: string) {
 
 const browser: Prompt[] = [
   {
-    id: "inspect-website",
-    title: "Inspect Website",
+    id: "inspect-webpage",
+    title: "Inspect Webpage",
     prompt: `Describe me the tech stack used based on the following HTML document:
 
 {browser-tab format="html"}
@@ -594,6 +594,20 @@ const misc: Prompt[] = [
     },
   },
   {
+    id: "create-task-list",
+    title: "Create Task List",
+    prompt:
+      "List detailed action steps in markdown format based on the provided text. Ensure the tasks can be efficiently completed." +
+      generateSelection("Text", "Tasks"),
+    creativity: "medium",
+    date: "2024-05-04",
+    icon: "flag",
+    author: {
+      name: "Abner Shang",
+      link: "https://www.linkedin.com/in/abnershang/",
+    },
+  },
+  {
     id: "extract-email-addresses",
     title: "Extract Email Addresses",
     prompt:
@@ -722,7 +736,7 @@ Stricly follow these rules:
 - Prioritize active voice over passive voice for a more engaging tone
 - Opt for simpler, more accessible vocabulary when possible
 - ALWAYS ensure the original meaning and intention of the given text
-- \(maintainOriginalLanguage)
+- ALWAYS detect and maintain the original language of the text
 - ALWAYS maintain the existing tone of voice and style, e.g. formal, casual, polite, etc.
 - NEVER surround the improved text with quotes or any additional formatting
 - If the text is already well-written and requires no improvement, don't change the given text` +
@@ -736,13 +750,13 @@ Stricly follow these rules:
     id: "fix-spelling-and-grammar-custom",
     title: "Fix Spelling and Grammar - Editable",
     prompt:
-      `Act as a spelling corrector and improver. \(replyWithRewrittenText)
+      `Act as a spelling corrector and improver. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - Correct spelling, grammar and punctuation
-- \(maintainOriginalLanguage)
+- ALWAYS detect and maintain the original language of the text
 - NEVER surround the rewritten text with quotes
-- \(maintainURLs)
+- Don't replace urls with markdown links
 - Don't change emojis` + generateSelection("Text", "Fixed Text"),
     creativity: "low",
     date: "2024-04-23",
@@ -775,7 +789,7 @@ Explanation: Philosophy is the study of the fundamental nature of knowledge, rea
     id: "make-longer-custom",
     title: "Make Longer - Editable",
     prompt:
-      `Act as a professional content writer tasked with expanding a client's text while maintaining its essence and style. \(replyWithRewrittenText)
+      `Act as a professional content writer tasked with expanding a client's text while maintaining its essence and style. Reply to each message only with the rewritten text
 
 Stictly follow these rules:
 - ALWAYS preserve the original tone, voice, and language of the text
@@ -794,7 +808,7 @@ Stictly follow these rules:
     id: "make-shorter-custom",
     title: "Make Shorter - Editable",
     prompt:
-      `Act as a professional content writer tasked with shortening a client's text while maintaining its essence and style. \(replyWithRewrittenText)
+      `Act as a professional content writer tasked with shortening a client's text while maintaining its essence and style. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - ALWAYS preserve the original tone, voice, and language of the text
@@ -814,7 +828,7 @@ Strictly follow these rules:
     id: "change-tone-to-professional",
     title: "Change Tone to Professional - Editable",
     prompt:
-      `Act as a professional content writer and editor. \(replyWithRewrittenText)
+      `Act as a professional content writer and editor. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - Professional tone of voice
@@ -824,8 +838,9 @@ Strictly follow these rules:
 - Concise phrasing
 - meaning  unchanged
 - Length retained
-- \(maintainURLs)
-\(maintainOriginalLanguage)` + generateSelection("Text", "Rewritten text"),
+- Don't replace urls with markdown links
+- ALWAYS detect and maintain the original language of the text` +
+      generateSelection("Text", "Rewritten text"),
     creativity: "low",
     date: "2024-04-23",
     icon: "raycast-logo-neg",
@@ -835,15 +850,16 @@ Strictly follow these rules:
     id: "change-tone-to-friendly",
     title: "Change Tone to Friendly - Editable",
     prompt:
-      `Act as a content writer and editor. \(replyWithRewrittenText)
+      `Act as a content writer and editor. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - Friendly and optimistic tone of voice
 - Correct spelling, grammar, and punctuation
 - Meaning unchanged
 - Length retained
-- \(maintainURLs)
-- \(maintainOriginalLanguage)` + generateSelection("Text", "Rewritten text"),
+- Don't replace urls with markdown links
+- ALWAYS detect and maintain the original language of the text` +
+      generateSelection("Text", "Rewritten text"),
     creativity: "low",
     date: "2024-04-23",
     icon: "raycast-logo-neg",
@@ -853,7 +869,7 @@ Strictly follow these rules:
     id: "change-tone-to-confident-custom",
     title: "Change Tone to Confident - Editable",
     prompt:
-      `Act as a content writer and editor. \(replyWithRewrittenText)
+      `Act as a content writer and editor. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - Use confident, formal and friendly tone of voice
@@ -863,8 +879,9 @@ Strictly follow these rules:
 - Correct spelling, grammar, and punctuation
 - Keep meaning unchanged
 - Keep length retained
-- \(maintainURLs)
-- \(maintainOriginalLanguage)` + generateSelection("Text", "Rewritten text"),
+- Don't replace urls with markdown links
+- ALWAYS detect and maintain the original language of the text` +
+      generateSelection("Text", "Rewritten text"),
     creativity: "low",
     date: "2024-04-23",
     icon: "raycast-logo-neg",
@@ -874,7 +891,7 @@ Strictly follow these rules:
     id: "change-tone-to-casual-custom",
     title: "Change Tone to Casual - Editable",
     prompt:
-      `Act as a content writer and editor. \(replyWithRewrittenText)
+      `Act as a content writer and editor. Reply to each message only with the rewritten text
 
 Strictly follow these rules:
 - Use casual and friendly tone of voice
@@ -885,8 +902,9 @@ Strictly follow these rules:
 - Correct spelling, grammar, and punctuation
 - Keep meaning unchanged
 - Keep length retained
-- \(maintainURLs)
-- \(maintainOriginalLanguage)` + generateSelection("Text", "Rewritten text"),
+- Don't replace urls with markdown links
+- ALWAYS detect and maintain the original language of the text` +
+      generateSelection("Text", "Rewritten text"),
     creativity: "low",
     date: "2024-04-23",
     icon: "raycast-logo-neg",
@@ -901,10 +919,10 @@ Strictly follow these rules:
 - Creative and catchy
 - Focused on key takeaways that challenge the status quo
 - Engaging and punchy
-- \(maintainURLs)
+- Don't replace urls with markdown links
 - IMPORTANT: less than 25 words.
 - IMPORTANT: doesn't include hash, hashtags and words starting with #, i.e. #innovation #Technology
-- \(maintainOriginalLanguage)
+- ALWAYS detect and maintain the original language of the text
 
 Text:
 The concept of Rayday is simple. Every Friday, everyone can use the day to work on something that benefits Raycast. From new features, to fixing bugs, drafting documentation or tidying up, it’s time for us to take a break from project work. As well as getting creative with our own ideas, it’s a great chance to act on feedback from our users and community too.
@@ -1001,11 +1019,11 @@ Nothing found - LGTM 👌` + generateSelection("Code", "Review"),
     model: "openai-gpt-3.5-turbo",
   },
   {
-    id: "summarize-website-custom",
-    title: "Summarize Website - Editable",
-    prompt: `Summarize the provided website with the following format:
+    id: "summarize-webpage-custom",
+    title: "Summarize Webpage - Editable",
+    prompt: `Summarize the provided webpage with the following format:
 """
-## <concise and easy-to-read website title>
+## <concise and easy-to-read webpage title>
 
 <one to two sentence summary with the most important information>
 
@@ -1018,7 +1036,7 @@ Some rules to follow precisely:
 - ALWAYS capture the tone, perspective and POV of the author
 - NEVER come up with additional information
 
-Here's the website information:
+Here's the webpage information:
 {browser-tab}`,
     creativity: "low",
     date: "2024-03-21",
@@ -1037,7 +1055,7 @@ export type Category = {
   iconComponent: IconComponent;
 };
 
-const baseCategories: Category[] = [
+export const baseCategories: Category[] = [
   {
     name: "Code",
     slug: "/code",
